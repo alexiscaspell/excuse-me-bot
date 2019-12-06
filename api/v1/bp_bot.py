@@ -24,3 +24,24 @@ def agregar_factor():
     message = Mensaje(body)
 
     bot_service.agregar_mensaje(lista_a_agregar, message)
+
+@blue_print.route(f'/{CurrentConfig.TELEGRAM_TOKEN}', methods=['POST'])
+@wrap_rest_response(ok=200, logger=logger)
+def respond():
+    body = request.get_json(force=True)
+
+    logger.info(f"MSG:{body}")
+
+    bot_service.excuse_me(body)
+
+    return 'ok'
+
+@blue_print.route('/run', methods=['GET'])
+@wrap_rest_response(ok=200, logger=logger)
+def run():
+    
+    bot_service.init(CurrentConfig.TELEGRAM_TOKEN)
+    bot_service.run()
+    bot_service.setear_webhook(uri=blue_print.url_prefix)
+
+    return 'ok'

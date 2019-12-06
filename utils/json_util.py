@@ -47,7 +47,7 @@ def from_json(o,return_class=dict):
     dict_json = json.loads(o)
     converter = decoder(return_class)
 
-    if type(dict_json.__class__) is list:
+    if isinstance(dict_json,list):
         return [converter(e) for e in dict_json]
             
     return converter(dict_json)

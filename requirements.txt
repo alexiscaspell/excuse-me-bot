@@ -5,3 +5,4 @@ Flask
 Flask-Cors
 psutil
 netifaces
+gunicorn
