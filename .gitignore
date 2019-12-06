@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+venv3.7/bin/
+
+venv3.7/include/
+
+venv3.7/share/python-wheels/
