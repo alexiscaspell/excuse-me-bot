@@ -10,4 +10,4 @@ COPY . .
 
 RUN pip install -r requirements.txt --upgrade pip
 
-CMD python bot.py
+CMD python app.py
